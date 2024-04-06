@@ -11,6 +11,7 @@ func Hello(name string) string {
 	return englishHelloPrefix + name
 }
 
+// test
 func main() {
 	fmt.Println(Hello("world"))
 }
