@@ -11,7 +11,7 @@ const (
 
 	englishHelloPrefix = "Hello, "
 	spanishHelloPrefix = "Hola, "
-	frenchhHelloPrefix = "Bonjour, "
+	frenchHelloPrefix  = "Bonjour, "
 	turkishHelloPrefix = "Merhaba, "
 )
 
@@ -20,7 +20,7 @@ func greetingPrefix(language string) (prefix string) {
 	case spanish:
 		prefix = spanishHelloPrefix
 	case french:
-		prefix = frenchhHelloPrefix
+		prefix = frenchHelloPrefix
 	case turkish:
 		prefix = turkishHelloPrefix
 	default:
