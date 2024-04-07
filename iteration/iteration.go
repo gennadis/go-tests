@@ -1,5 +1,7 @@
 package iteration
 
+import "strings"
+
 func Repeat(character string, count int) string {
 	var repeated string
 
@@ -8,4 +10,8 @@ func Repeat(character string, count int) string {
 	}
 
 	return repeated
+}
+
+func Counter(word, character string) int {
+	return strings.Count(word, character)
 }
