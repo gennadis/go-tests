@@ -15,13 +15,7 @@ const (
 	turkishHelloPrefix = "Merhaba, "
 )
 
-func Hello(name, language string) string {
-	if name == "" {
-		name = "World"
-	}
-
-	prefix := englishHelloPrefix
-
+func greetingPrefix(language string) (prefix string) {
 	switch language {
 	case spanish:
 		prefix = spanishHelloPrefix
@@ -29,9 +23,18 @@ func Hello(name, language string) string {
 		prefix = frenchhHelloPrefix
 	case turkish:
 		prefix = turkishHelloPrefix
+	default:
+		prefix = englishHelloPrefix
+	}
+	return
+}
+
+func Hello(name, language string) string {
+	if name == "" {
+		name = "World"
 	}
 
-	return prefix + name
+	return greetingPrefix(language) + name
 }
 
 func main() {
