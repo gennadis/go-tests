@@ -5,11 +5,14 @@ import (
 )
 
 const (
-	spanish            = "Spanish"
-	french             = "French"
+	spanish = "Spanish"
+	french  = "French"
+	turkish = "Turkish"
+
 	englishHelloPrefix = "Hello, "
 	spanishHelloPrefix = "Hola, "
 	frenchhHelloPrefix = "Bonjour, "
+	turkishHelloPrefix = "Merhaba, "
 )
 
 func Hello(name, language string) string {
@@ -24,6 +27,8 @@ func Hello(name, language string) string {
 		prefix = spanishHelloPrefix
 	case french:
 		prefix = frenchhHelloPrefix
+	case turkish:
+		prefix = turkishHelloPrefix
 	}
 
 	return prefix + name
