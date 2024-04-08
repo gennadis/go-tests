@@ -5,6 +5,8 @@ import (
 	"fmt"
 )
 
+var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
+
 type Tugbacoin int
 
 func (t Tugbacoin) String() string {
@@ -21,7 +23,7 @@ func (w *Wallet) Deposit(amount Tugbacoin) {
 
 func (w *Wallet) Withdraw(amount Tugbacoin) error {
 	if w.balance < amount {
-		return errors.New("cannot withdraw, insufficient funds")
+		return ErrInsufficientFunds
 	}
 	w.balance -= amount
 	return nil
