@@ -30,3 +30,18 @@ func (c Circle) Area() float64 {
 func (c Circle) Perimeter() float64 {
 	return 2 * math.Pi * c.Radius
 }
+
+type Trianlgle struct {
+	Base   float64
+	LegOne float64
+	LegTwo float64
+}
+
+func (t Trianlgle) Area() float64 {
+	halfPerimeter := t.Perimeter() / 2
+	return math.Sqrt(halfPerimeter * (halfPerimeter - t.Base) * (halfPerimeter - t.LegOne) * (halfPerimeter - t.LegTwo))
+}
+
+func (t Trianlgle) Perimeter() float64 {
+	return t.Base + t.LegOne + t.LegTwo
+}
