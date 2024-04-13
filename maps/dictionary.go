@@ -3,8 +3,9 @@ package maps
 type Dictionary map[string]string
 
 const (
-	ErrNotFound   = DictionaryError("could not find the word you were lookking for")
-	ErrWordExists = DictionaryError("cannot add word because it already exists")
+	ErrNotFound         = DictionaryError("could not find the word you were lookking for")
+	ErrWordExists       = DictionaryError("cannot add word because it already exists")
+	ErrWordDoesNotExist = DictionaryError("cannot update word because it does not exist")
 )
 
 type DictionaryError string
@@ -32,5 +33,20 @@ func (d Dictionary) Add(word, definition string) error {
 	default:
 		return err
 	}
+	return nil
+}
+
+func (d Dictionary) Update(word, definition string) error {
+	_, err := d.Search(word)
+
+	switch err {
+	case ErrNotFound:
+		return ErrWordDoesNotExist
+	case nil:
+		d[word] = definition
+	default:
+		return err
+	}
+
 	return nil
 }
